@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html>
+
+  <head>
+    <title>GitHub Org API</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="static/bootstrap.min.css" rel="stylesheet" media="screen">
+    <link href="static/app.css" rel="stylesheet" media="screen">
+  </head>
+
+  <body>
+    <div class="container mt-3">
+      <h1>GitHub Organization API</h2>
+        <br>
+        <form class="form-inline" onkeydown="return event.key != 'Enter';">
+          <div class="form-group mb-2">
+            <label for="search" class="mr-2">Organization Name</label>
+            <input type="search" class="form-control" id="search" placeholder="ex. (github)">
+          </div>
+          <button type="button" onclick="location.href = '?org=' + document.getElementById('search').value;" class="btn btn-primary mb-2">
+            Search
+          </button>
+        </form>
+        <br />
+        <div class="row">
+          <div class="col-md-4">
+            <div class="card shadow-sm">
+              <img class="bd-placeholder-img card-img-top" width="100%" height="auto" src={{orgData.avatar_url}}
+                preserveAspectRatio="xMidYMid slice" focusable="false" role="img" aria-label="Placeholder: Thumbnail">
+              <div class="card-body">
+                <div class="row">
+                  <div class="col-md-5">
+                    <b>Name: </b><a href={{orgData.url}}><br/>{{orgData.name}}</a>
+                  </div>
+                  <div class="col-md-7">
+                    <b>Location: </b><br/>{{orgData.location}}
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="col-md-8">
+            <div class="card mb-8 shadow-sm">           
+              <div class="card-body">
+                <div class="row">
+                  <div class="col">
+                    <b>Description: </b><br/>
+                    <p class="pl-">{{orgData.description}}</p>
+                  </div>
+                </div>
+                <div class="row">
+                  <div class="col-md-4">
+                    <b>Type: </b><br/>{{orgData.type}}
+                  </div>
+                  <div class="col-md-4">
+                    <b>Email: </b><br/>{{orgData.email}}
+                  </div>
+                  <div class="col-md-4">
+                    <b>Has Org Projects: </b><br/>{{orgData.has_organization_projects}}
+                  </div>
+                  <div class="col-md-4">
+                    <b>Has Repository Projects: </b><br/>{{orgData.has_repository_projects}}
+                  </div>
+                  <div class="col-md-4">
+                    <b>Public Repos: </b><br/>{{orgData.public_repos}}
+                  </div>
+                  <div class="col-md-4">
+                    <b>Verified: </b><br/>{{orgData.is_verified}}
+                  </div>
+                </div>
+                <div class="row">
+                  <div class="col-md-4">
+                    <div class="btn-group">
+                      <a href={{orgData.blog}}><button type="button" class="btn btn-sm btn-outline-secondary">Blog</button></a>
+                      <a href={{"https://github.com/orgs/" + orgData.name + "/people"}}><button type="button" class="btn btn-sm btn-outline-secondary">People</button></a>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+    </div>
+  </body>
+</html>

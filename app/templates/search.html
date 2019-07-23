@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html>
+
+  <head>
+    <title>GitHub Org API</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="static/bootstrap.min.css" rel="stylesheet" media="screen">
+    <link href="static/app.css" rel="stylesheet" media="screen">
+  </head>
+
+  <body>
+    <div class="container mt-3">
+      <h1>GitHub Organization API</h2>
+        <br>
+        <form class="form-inline" onkeydown="return event.key != 'Enter';">
+          <div class="form-group mb-2">
+            <label for="search" class="mr-2">Organization Name</label>
+            <input type="search" class="form-control" id="search" placeholder="ex. (github)">
+          </div>
+          <button type="button" onclick="location.href = '?org=' + document.getElementById('search').value;" class="btn btn-primary mb-2">
+              Search
+          </button>
+        </form>     
+    </div>
+  </body>
+
+</html>

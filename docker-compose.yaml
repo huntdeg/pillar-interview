@@ -1,0 +1,11 @@
+version: '3'
+services:
+  pillar-interview:
+    build:
+      context: ./app
+      dockerfile: Dockerfile
+    container_name: pillar-interview
+    image: pillar-interview:latest
+    ports:
+      - "3261:3261"
+      
